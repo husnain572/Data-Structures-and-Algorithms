@@ -33,9 +33,8 @@ Thus, for **n** elements, **n-1 passes** are required.
 4th pass: **1 swap** → `(n-4)`  
 
 **Total number of swaps:**  
-\[
-(n-1) + (n-2) + ... + 1 = \frac{n(n-1)}{2}
-\]  
+(n-1) + (n-2) + ... + 1 = <sup>n(n-1)</sup>&frasl;<sub>2</sub>
+
 (Sum of first **(n-1)** natural numbers)  
 
 ---
