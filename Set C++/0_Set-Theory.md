@@ -37,7 +37,7 @@ std::set<int> set1 = {1, 5, 4, 3};
 
 // For a set with elements in decreasing order:
 std::set<data_type, std::greater<data_type>> setName;
-
+```
 
 ---
 
@@ -47,11 +47,11 @@ std::set<data_type, std::greater<data_type>> setName;
   set_name.insert(value);
   
 - **Example**:  
-  
+  ```
   set1.insert(5);
   set1.insert(1);
   set1.insert(2);
-  
+  ```
 - **Time Complexity**: **O(log N)** per insertion.  
 - **Note**: The `insert` function returns an iterator pointing to the inserted value.  
 
@@ -67,17 +67,17 @@ std::set<data_type, std::greater<data_type>> setName;
 
 ## Deleting Elements from a Set  
 - **By Value**:  
-  
+  ```
   setName.erase(value);
-  
+  ```
 - **By Iterator/Position**:  
-  
+  ```
   setName.erase(position);
-  
+  ```
 - **Range Deletion**:  
-  
+  ```
   setName.erase(start_position, end_position);
-  
+  ```
   - Deletes elements starting from **start_position** (inclusive) to **end_position** (exclusive).  
   - **Time Complexity**: **O(N)**.  
 
