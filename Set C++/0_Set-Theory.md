@@ -3,7 +3,7 @@
 ## Overview  
 A **set** is a container in the C++ Standard Template Library (STL) that stores **unique values** in an **ordered** manner.
 
-### Characteristics of a Set:  
+### Characteristics of a Set:
 - **STL Container**: Used to store **unique values**.  
 - **Ordered Storage**: Values are stored in an **increasing** or **decreasing** order.  
 - **No Indexing**: Elements are accessed by their values; **indexing is not supported**.  
