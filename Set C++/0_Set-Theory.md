@@ -26,6 +26,7 @@ A **set** is a container in the C++ Standard Template Library (STL) that stores 
 
 ## Declaration of a Set  
 
+```cpp
 #include <set>
 
 // Declaration of a set
@@ -36,6 +37,7 @@ std::set<int> set1 = {1, 5, 4, 3};
 
 // For a set with elements in decreasing order:
 std::set<data_type, std::greater<data_type>> setName;
+
 
 ---
 
