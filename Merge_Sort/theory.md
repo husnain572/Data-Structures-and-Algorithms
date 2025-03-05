@@ -151,9 +151,8 @@ Let's sort `arr = {12, 11, 13, 5, 6, 7}` step by step:
 
 ## Why Use Merge Sort?
 
-**Stable Sort** (Maintains the relative order of equal elements)  
-**Guaranteed O(n log n) Performance** (Unlike QuickSort, which can degrade to O(n²) in worst cases)  
-**Efficient for Large Datasets** (Used in external sorting like disk-based sorting)  
-
-**Consumes Extra Space** (Requires additional memory for merging)  
+- **Stable Sort** (Maintains the relative order of equal elements)  
+- **Guaranteed O(n log n) Performance** (Unlike QuickSort, which can degrade to O(n²) in worst cases)  
+- **Efficient for Large Datasets** (Used in external sorting like disk-based sorting)  
+- **Consumes Extra Space** (Requires additional memory for merging)  
 
