@@ -1,5 +1,4 @@
 
-```markdown
 # Understanding Merge Sort in C++
 
 Merge Sort is a divide and conquer algorithm that recursively splits an array into two halves, sorts each half, and then merges them back together.
@@ -157,5 +156,4 @@ Let's sort `arr = {12, 11, 13, 5, 6, 7}` step by step:
 **Efficient for Large Datasets** (Used in external sorting like disk-based sorting)  
 
 **Consumes Extra Space** (Requires additional memory for merging)  
-```
 
