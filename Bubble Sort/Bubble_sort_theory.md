@@ -8,13 +8,33 @@ Sorting is the process of arranging elements in either increasing or decreasing 
 ### Definition:  
 Bubble Sort repeatedly swaps two adjacent elements if they are in the wrong order.  
 
-### Example:  
-#### Given the array:  
-`4, 2, 5, 1, 3`  
+### Given Array:  
+`4, 2, 5, 1, 3`
 
-#### Sorting process:  
-1. `4, 2, 1, 5, 3`  
-2. `4, 2, 1, 3, 5`  
+### Sorting Process:
+#### Pass 1:
+1. Compare `4` and `2` → Swap → `2, 4, 5, 1, 3`
+2. Compare `4` and `5` → No swap → `2, 4, 5, 1, 3`
+3. Compare `5` and `1` → Swap → `2, 4, 1, 5, 3`
+4. Compare `5` and `3` → Swap → `2, 4, 1, 3, 5`
+
+#### Pass 2:
+1. Compare `2` and `4` → No swap → `2, 4, 1, 3, 5`
+2. Compare `4` and `1` → Swap → `2, 1, 4, 3, 5`
+3. Compare `4` and `3` → Swap → `2, 1, 3, 4, 5`
+4. Compare `4` and `5` → No swap → `2, 1, 3, 4, 5`
+
+#### Pass 3:
+1. Compare `2` and `1` → Swap → `1, 2, 3, 4, 5`
+2. Compare `2` and `3` → No swap → `1, 2, 3, 4, 5`
+3. Compare `3` and `4` → No swap → `1, 2, 3, 4, 5`
+4. Compare `4` and `5` → No swap → `1, 2, 3, 4, 5`
+
+Since no swaps occurred in Pass 3, the array is sorted, and we can stop early.
+
+### Final Sorted Array:
+`1, 2, 3, 4, 5`
+
 
 For **n** elements, the sorting process requires **n-1 passes** to place all elements in their correct positions.  
 
