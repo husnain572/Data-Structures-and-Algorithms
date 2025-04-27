@@ -1,10 +1,3 @@
-Bilkul! Jo content aapne aaj cover kiya hai (2D Arrays in C++ + Operations), usko main neat, clean aur professional Markdown (md) document mein organize kar ke de raha hoon —  
-taake aap directly GitHub par upload kar sakein aur apne liye revision ke liye bhi use kar sakein.
-
-Yeh raha aapka **final ready-to-upload md file**:
-
----
-
 # 2D Arrays (Matrix) in C++
 
 ## Table of Contents
