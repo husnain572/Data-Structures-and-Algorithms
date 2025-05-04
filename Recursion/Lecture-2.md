@@ -1,8 +1,8 @@
 
 ```cpp
 // =============================
-// 📁 Recursion Practice - Day 2
-// ✅ 3 Questions (2 LeetCode + 1 Basic)
+//  Recursion Practice - Day 2
+// 3 Questions (2 LeetCode + 1 Basic)
 // =============================
 
 #include<iostream>
@@ -10,7 +10,7 @@
 using namespace std;
 
 // -------------------------------------------------
-// 🔹 Question 1: Check if an Array is Sorted (Recursive)
+// Question 1: Check if an Array is Sorted (Recursive)
 // Description: Returns true if the array is sorted in non-decreasing order.
 // -------------------------------------------------
 
@@ -30,7 +30,7 @@ int main(){
 
 ```cpp
 // -------------------------------------------------
-// 🔹 Question 2: LeetCode - 704. Binary Search (Recursive)
+// Question 2: LeetCode - 704. Binary Search (Recursive)
 // Link: https://leetcode.com/problems/binary-search/
 // -------------------------------------------------
 
@@ -57,7 +57,7 @@ public:
 
 ```cpp
 // -------------------------------------------------
-// 🔹 Question 3: LeetCode - 509. Fibonacci Number (Recursive)
+// Question 3: LeetCode - 509. Fibonacci Number (Recursive)
 // Link: https://leetcode.com/problems/fibonacci-number/
 // -------------------------------------------------
 
@@ -71,4 +71,5 @@ public:
     }
 };
 ```
+
 
