@@ -15,8 +15,8 @@
 - **Time Complexity**: `O(n)` in the worst case for operations like search.
 
 ## Implementation Methods:
-1. Using STL (Standard Template Library)
-2. Using OOP (Object-Oriented Programming) with classes
+1. Using STL (Standard Template Library).
+2. Using OOP (Object-Oriented Programming) with classes.
 
 ---
 
