@@ -1,5 +1,3 @@
-Got it ✅
-Here’s your **FAANG-level `.md` notes** for **Arrays** combining theory, STL usage, patterns, techniques, and the detailed C++ implementations you practiced today.
 
 # Arrays – FAANG-Level Notes
 
@@ -16,12 +14,14 @@ It allows **random access by index** and is a fundamental data structure in codi
 
 ### Declaration
 int arr[5];                     // Uninitialized array of size 5
+
 int arr[] = {1, 2, 3, 4, 5};     // Initialized array
 
 
 ### Access & Modification
 
 int x = arr[0];   // Access first element
+
 arr[2] = 10;      // Modify element at index 2
 
 
