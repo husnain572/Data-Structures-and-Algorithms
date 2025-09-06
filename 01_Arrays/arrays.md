@@ -1,4 +1,6 @@
+
 # Arrays and Vectors – Notes
+
 ---
 
 ## What is an Array?
@@ -10,19 +12,23 @@ It allows **constant time access by index** and is widely used for storing and p
 ## Array Basics (C++)
 
 ### Declaration
+```cpp
 int arr[5];                     // Uninitialized array of size 5
-
 int arr[] = {1, 2, 3, 4, 5};     // Initialized array
+````
 
 ### Access & Modification
 
+```cpp
 int x = arr[0];   // Access first element
-
 arr[2] = 10;      // Modify element at index 2
+```
 
 ### Size of Static Array
 
+```cpp
 int n = sizeof(arr) / sizeof(arr[0]);
+```
 
 ---
 
@@ -33,18 +39,20 @@ It is stored in **heap memory** (dynamic allocation), unlike static arrays which
 
 ### Declaration
 
+```cpp
 #include <vector>
 vector<int> vec;                   // Empty vector
-
 vector<int> vec = {2, 3, 4};       // Initialized vector
-
 vector<int> vec(3, 0);              // Vector of size 3 with all values 0
+```
 
 ### Traversal
 
+```cpp
 for (int val : vec) {  // Range-based loop (for-each loop)
     cout << val << " ";
 }
+```
 
 ### Common Functions
 
@@ -81,6 +89,7 @@ for (int val : vec) {  // Range-based loop (for-each loop)
 
 ## Traversing Arrays
 
+```cpp
 // Classic loop
 for (int i = 0; i < n; i++)
     cout << arr[i] << " ";
@@ -88,6 +97,7 @@ for (int i = 0; i < n; i++)
 // Range-based loop
 for (int x : arr)
     cout << x << " ";
+```
 
 ---
 
@@ -127,6 +137,7 @@ for (int x : arr)
 
 ### Printing Arrays & Taking Input
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -143,11 +154,13 @@ int main() {
 
     return 0;
 }
+```
 
 ---
 
 ### Find Smallest and Largest
 
+```cpp
 #include <iostream>
 #include <climits>
 using namespace std;
@@ -173,11 +186,13 @@ int main() {
     cout << "Smallest: " << smallest << " at index " << idx_min << endl;
     cout << "Largest: " << largest << " at index " << idx_max << endl;
 }
+```
 
 ---
 
 ### Pass Array by Reference
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -192,12 +207,13 @@ int main() {
 
     for (int i = 0; i < 3; i++) cout << arr[i] << " ";
 }
-
+```
 
 ---
 
 ### Linear Search
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -211,11 +227,13 @@ int main() {
     int arr[] = {4, 2, 6, 5, 8, 1, 9};
     cout << linearSearch(arr, 7, 1);
 }
+```
 
 ---
 
 ### Reverse Array
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -233,11 +251,13 @@ int main() {
     reverseArray(arr, 5);
     for (int i = 0; i < 5; i++) cout << arr[i] << " ";
 }
+```
 
 ---
 
 ### Sum and Product
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -254,12 +274,13 @@ int main() {
     int arr[] = {6, 4, 9, 7, 1, 2};
     operations(arr, 6);
 }
-
+```
 
 ---
 
 ### Swap Min and Max
 
+```cpp
 #include <iostream>
 #include <climits>
 using namespace std;
@@ -280,11 +301,13 @@ int main() {
     swapMinMax(arr, 5);
     for (int i = 0; i < 5; i++) cout << arr[i] << " ";
 }
+```
 
 ---
 
 ### Unique Elements
 
+```cpp
 #include <iostream>
 #include <unordered_set>
 using namespace std;
@@ -304,11 +327,13 @@ int main() {
     int arr[] = {5, 12, 14, 72, 5, 14};
     printUnique(arr, 6);
 }
+```
 
 ---
 
 ### Intersection of Two Arrays
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -329,6 +354,7 @@ int main() {
     int arr2[] = {0, 5, 1, 9, 3};
     printIntersection(arr1, 6, arr2, 5);
 }
+```
 
 ---
 
@@ -356,5 +382,4 @@ int main() {
 * Median of Two Sorted Arrays (#4)
 * Trapping Rain Water (#42)
 * First Missing Positive (#41)
-
 
