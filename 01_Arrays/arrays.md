@@ -1,12 +1,9 @@
-
-# Arrays – FAANG-Level Notes
-
+# Arrays and Vectors – Notes
 ---
 
-##  What is an Array?
-
+## What is an Array?
 An array is a **collection of elements stored at contiguous memory locations**.  
-It allows **random access by index** and is a fundamental data structure in coding interviews.
+It allows **constant time access by index** and is widely used for storing and processing sequential data.
 
 ---
 
@@ -17,41 +14,64 @@ int arr[5];                     // Uninitialized array of size 5
 
 int arr[] = {1, 2, 3, 4, 5};     // Initialized array
 
-
 ### Access & Modification
 
 int x = arr[0];   // Access first element
 
 arr[2] = 10;      // Modify element at index 2
 
-
 ### Size of Static Array
 
 int n = sizeof(arr) / sizeof(arr[0]);
 
+---
+
+## Vectors in C++
+
+A `vector` is a **dynamic array** from the C++ STL that can **grow and shrink** in size.
+It is stored in **heap memory** (dynamic allocation), unlike static arrays which are stored in stack memory.
+
+### Declaration
+
+#include <vector>
+vector<int> vec;                   // Empty vector
+
+vector<int> vec = {2, 3, 4};       // Initialized vector
+
+vector<int> vec(3, 0);              // Vector of size 3 with all values 0
+
+### Traversal
+
+for (int val : vec) {  // Range-based loop (for-each loop)
+    cout << val << " ";
+}
+
+### Common Functions
+
+| Function       | Description                           |
+| -------------- | ------------------------------------- |
+| `size()`       | Number of elements in the vector      |
+| `push_back(x)` | Add element to the end                |
+| `pop_back()`   | Remove last element                   |
+| `front()`      | First element                         |
+| `back()`       | Last element                          |
+| `at(i)`        | Element at index `i` (bounds-checked) |
+| `capacity()`   | Current allocated storage capacity    |
+
+**Note:**
+
+* **size** → Number of elements stored
+* **capacity** → Amount of memory currently allocated (can be greater than size)
 
 ---
 
-## Useful STL Container – `vector`
-
-
-vector<int> v;          // Dynamic array
-v.push_back(10);        // Add to end
-v.pop_back();           // Remove last element
-v.size();               // Get size
-v.clear();              // Remove all elements
-v.begin(), v.end();     // Iterators
-
-
----
-
-## Common Array Functions (C++)
+## Useful STL Array Functions
 
 | Function                    | Description                         |
 | --------------------------- | ----------------------------------- |
-| `sort(arr, arr+n)`          | Sort the array                      |
+| `sort(arr, arr+n)`          | Sort array                          |
 | `reverse(arr, arr+n)`       | Reverse array                       |
-| `accumulate(arr, arr+n, 0)` | Sum of elements (needs `<numeric>`) |
+| `accumulate(arr, arr+n, 0)` | Sum of elements (`<numeric>`)       |
 | `min_element(arr, arr+n)`   | Iterator to min element             |
 | `max_element(arr, arr+n)`   | Iterator to max element             |
 | `count(arr, arr+n, x)`      | Count occurrences of `x`            |
@@ -61,27 +81,26 @@ v.begin(), v.end();     // Iterators
 
 ## Traversing Arrays
 
-// Classic for loop
+// Classic loop
 for (int i = 0; i < n; i++)
     cout << arr[i] << " ";
 
-// Range-based for loop
+// Range-based loop
 for (int x : arr)
     cout << x << " ";
 
-
 ---
 
-## Patterns & Techniques
+## Patterns and Techniques
 
-| Technique            | Use Case                                    |
-| -------------------- | ------------------------------------------- |
-| **Two Pointers**     | Sorted array, pair sum, removing duplicates |
-| **Sliding Window**   | Max sum subarray of size k                  |
-| **Prefix Sum**       | Subarray sum queries                        |
-| **Binary Search**    | Rotated sorted array search                 |
-| **Hashing**          | Two Sum, frequency count                    |
-| **Sorting + Greedy** | Interval problems                           |
+| Technique        | Use Case                                  |
+| ---------------- | ----------------------------------------- |
+| Two Pointers     | Sorted array, pair sum, remove duplicates |
+| Sliding Window   | Max sum subarray of size k                |
+| Prefix Sum       | Subarray sum queries                      |
+| Binary Search    | Search in sorted or rotated arrays        |
+| Hashing          | Two Sum, frequency problems               |
+| Sorting + Greedy | Interval problems                         |
 
 ---
 
@@ -91,50 +110,43 @@ for (int x : arr)
 * Single element
 * Duplicate values
 * Negative numbers
-* Overflow in sum (use `long long`)
-* Unsorted vs. sorted array differences
+* Integer overflow (use `long long`)
+* Unsorted vs sorted arrays
 
 ---
 
 ## Interview Tips
 
-* Always check **sorted vs unsorted**
-* Avoid **off-by-one** errors
-* Dry run with small inputs
+* Check if the array is sorted
+* Be careful with off-by-one errors
+* Always dry run small inputs
 
 ---
 
-# C++ Implementations
+# Implementations
 
----
-
-### Print Arrays & Take Input
-
+### Printing Arrays & Taking Input
 
 #include <iostream>
 using namespace std;
 
 int main() {
-    int arr_1[3] = {1, 2, 4};
-    int arr_2[] = {4, 5, 7};
+    int arr[3] = {1, 2, 4};
 
-    // Printing elements
-    for (int i = 0; i < 3; i++) cout << arr_1[i] << " ";
+    for (int i = 0; i < 3; i++) cout << arr[i] << " ";
     cout << endl;
 
-    // Taking input
-    int size = sizeof(arr_1) / sizeof(int);
-    for (int j = 0; j < size; j++) cin >> arr_1[j];
+    int size = sizeof(arr) / sizeof(int);
+    for (int j = 0; j < size; j++) cin >> arr[j];
 
-    // Printing updated array
-    for (int i = 0; i < size; i++) cout << arr_1[i] << " ";
+    for (int i = 0; i < size; i++) cout << arr[i] << " ";
 
     return 0;
 }
 
 ---
 
-### Find Smallest & Largest Element
+### Find Smallest and Largest
 
 #include <iostream>
 #include <climits>
@@ -144,7 +156,8 @@ int main() {
     int arr[] = {4, 5, 7};
     int size = 3;
 
-    int smallest = INT_MAX, largest = INT_MIN, idx_min = 0, idx_max = 0;
+    int smallest = INT_MAX, largest = INT_MIN;
+    int idx_min = 0, idx_max = 0;
 
     for (int i = 0; i < size; i++) {
         if (arr[i] < smallest) {
@@ -159,8 +172,6 @@ int main() {
 
     cout << "Smallest: " << smallest << " at index " << idx_min << endl;
     cout << "Largest: " << largest << " at index " << idx_max << endl;
-
-    return 0;
 }
 
 ---
@@ -180,8 +191,8 @@ int main() {
     changeArr(arr, 3);
 
     for (int i = 0; i < 3; i++) cout << arr[i] << " ";
-    return 0;
 }
+
 
 ---
 
@@ -198,15 +209,12 @@ int linearSearch(int arr[], int size, int target) {
 
 int main() {
     int arr[] = {4, 2, 6, 5, 8, 1, 9};
-    cout << linearSearch(arr, 7, 1) << endl;
-    return 0;
+    cout << linearSearch(arr, 7, 1);
 }
-
 
 ---
 
 ### Reverse Array
-
 
 #include <iostream>
 using namespace std;
@@ -224,13 +232,11 @@ int main() {
     int arr[] = {4, 6, 0, 1, 5};
     reverseArray(arr, 5);
     for (int i = 0; i < 5; i++) cout << arr[i] << " ";
-    return 0;
 }
-
 
 ---
 
-### Sum & Product of Array
+### Sum and Product
 
 #include <iostream>
 using namespace std;
@@ -241,18 +247,18 @@ void operations(int arr[], int size) {
         sum += arr[i];
         product *= arr[i];
     }
-    cout << "Sum: " << sum << "\nProduct: " << product << endl;
+    cout << "Sum: " << sum << "\nProduct: " << product;
 }
 
 int main() {
     int arr[] = {6, 4, 9, 7, 1, 2};
     operations(arr, 6);
-    return 0;
 }
+
 
 ---
 
-### Swap Min & Max in Array
+### Swap Min and Max
 
 #include <iostream>
 #include <climits>
@@ -271,16 +277,13 @@ void swapMinMax(int arr[], int size) {
 
 int main() {
     int arr[] = {9, 4, 3, 1, 0};
-    int size = 5;
-    swapMinMax(arr, size);
-
-    for (int i = 0; i < size; i++) cout << arr[i] << " ";
-    return 0;
+    swapMinMax(arr, 5);
+    for (int i = 0; i < 5; i++) cout << arr[i] << " ";
 }
 
 ---
 
-### Unique Elements in Array
+### Unique Elements
 
 #include <iostream>
 #include <unordered_set>
@@ -300,13 +303,11 @@ void printUnique(int arr[], int n) {
 int main() {
     int arr[] = {5, 12, 14, 72, 5, 14};
     printUnique(arr, 6);
-    return 0;
 }
 
 ---
 
 ### Intersection of Two Arrays
-
 
 #include <iostream>
 using namespace std;
@@ -327,12 +328,11 @@ int main() {
     int arr1[] = {4, 3, 9, 6, 5, 7};
     int arr2[] = {0, 5, 1, 9, 3};
     printIntersection(arr1, 6, arr2, 5);
-    return 0;
 }
 
 ---
 
-# LeetCode Problems (Array-Focused)
+# LeetCode Practice Problems
 
 ### Easy
 
@@ -356,7 +356,5 @@ int main() {
 * Median of Two Sorted Arrays (#4)
 * Trapping Rain Water (#42)
 * First Missing Positive (#41)
-
----
 
 
