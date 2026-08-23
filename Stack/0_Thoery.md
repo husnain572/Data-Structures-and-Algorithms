@@ -1,3 +1,4 @@
+# Stack
 ### What is a Stack?
 
 A **stack** is a linear data structure that follows the **LIFO (Last-In, First-Out)** principle.
