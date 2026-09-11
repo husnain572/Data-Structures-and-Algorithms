@@ -12,7 +12,6 @@ q.empty();     // is queue empty
 ```
 
 ## `deque<T>`
-
 ```cpp
 #include <deque>
 deque<int> dq;
