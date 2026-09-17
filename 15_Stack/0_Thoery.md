@@ -324,4 +324,4 @@ Monotonic Stack
 Undo/Redo
 ```
 
-**DSA mindset:** When a problem requires you to remember the **most recent unresolved element/state** and deal with it before older ones, a **stack is often the right data structure**.
+***DSA Mindset:*** When a problem requires you to remember the **most recent unresolved element/state** and deal with it before older ones, a **stack is often the right data structure**.
