@@ -37,8 +37,6 @@ return root;
 
 // Preorder
 // Root -> Left -> Right
-
-
 void preOrder(Node* root) {
 
 if (root == NULL) {
@@ -53,7 +51,6 @@ preOrder(root->right);
 
 // Inorder
 // Left -> Root -> Right
-
 void inOrder(Node* root) {
 
 if (root == NULL) {
@@ -69,7 +66,6 @@ inOrder(root->right);
 
 // Postorder
 // Left -> Right -> Root
-
 void postOrder(Node* root) {
 if (root == NULL) {
     return;
@@ -84,7 +80,6 @@ cout << root->data << " ";
 
 // Level Order
 // BFS - line by line
-
 void levelOrder(Node* root) {
 
 if (root == NULL) {
@@ -155,8 +150,6 @@ while (!q.empty()) {
 
 cout << endl;
 }
-
-// Main
 
 int main() {
 vector<int> preorder = {
