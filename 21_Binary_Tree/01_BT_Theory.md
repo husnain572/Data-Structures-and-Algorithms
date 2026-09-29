@@ -54,7 +54,6 @@ Example:
     4   5
 ```
 
-
 # 3. Important Binary Tree Terminology
 
 ### Root Node
