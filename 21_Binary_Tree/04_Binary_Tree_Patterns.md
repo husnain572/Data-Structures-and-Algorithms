@@ -22,8 +22,6 @@ When reading a binary tree problem, certain keywords often indicate a common app
 
 These are common patterns, not strict rules. The actual approach depends on the problem.
 
----
-
 # 2. DFS Pattern
 
 Depth First Search explores a tree by going deeper into its subtrees.
