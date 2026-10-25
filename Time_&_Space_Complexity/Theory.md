@@ -1,44 +1,53 @@
-# TIME & SPACE COMPLEXITY
+# Time & Space Complexity
 
-## 1. Why do we study Time & Space Complexity?
+## 1. Why Do We Study Time & Space Complexity?
 
-- Almost every **DS / Algorithm** ke saath Time + Space Complexity use hoti hai.
-- Coding platforms par solution submit karte waqt important.
-- Interviews mein aksar poocha jata hai:
-  - **Time Complexity?**
-  - **Space Complexity?**
-- Main purpose:
-  1. Efficient algorithms design karna.
-  2. Different algorithms ko compare karna.
-  3. Input size barhne par algorithm ka behavior samajhna.
+Time and Space Complexity are important for almost every **Data Structure and Algorithm (DSA)** problem.
+
+They help us:
+
+1. Design efficient algorithms.
+2. Compare different algorithms.
+3. Understand how an algorithm behaves as the input size increases.
+4. Estimate whether a solution will pass coding-platform constraints.
+5. Explain our solution during interviews.
+
+In interviews, common questions include:
+
+- What is the **Time Complexity**?
+- What is the **Space Complexity**?
 
 ---
 
-# 2. TIME COMPLEXITY
+# 2. Time Complexity
 
-### Definition
+## Definition
 
-**Time Complexity = input size `n` ke function ke taur par algorithm kitne operations perform karta hai.**
+**Time Complexity describes how the number of operations performed by an algorithm grows as the input size `n` increases.**
 
-Important:
+> Time Complexity is **not the actual execution time in seconds**.
 
-> Time Complexity actual seconds nahi hoti.
+For example:
 
-Example:
+```text
+0.05 seconds
+```
 
-`0.05 sec`
+is actual execution time, which can depend on:
 
-ye actual execution time hai, jo:
-- Machine par depend kar sakta hai.
-- Server/platform par depend kar sakta hai.
+- The machine
+- CPU
+- Server
+- Programming language
+- Platform
 
-Time Complexity algorithm ke **growth behavior** ko describe karti hai.
+Time Complexity focuses on the **growth behavior of the algorithm**.
 
 ---
 
 # 3. Example — Linear Search
 
-Array size = `n`
+Suppose an array contains `n` elements:
 
 ```text
 for i = 0 → n-1
@@ -48,106 +57,91 @@ for i = 0 → n-1
 
 ### Worst Case
 
-Target last index par hai.
+The target is at the last index.
 
 | Input `n` | Operations |
-|---|---:|
+|---:|---:|
 | 1 | ~1 |
 | 10 | ~10 |
 | 100 | ~100 |
-| 100000 | ~100000 |
+| 100,000 | ~100,000 |
 
-So:
+As `n` increases, the number of operations increases approximately linearly.
 
 ```text
 n ↑  →  operations ↑
 ```
 
-Graph:
+Therefore:
 
 ```text
-Operations
-    |
-    |        /
-    |      /
-    |    /
-    |  /
-    |/____________ Input (n)
+Time Complexity = O(n)
 ```
-
-Growth is linear.
-
-### Time Complexity:
-
-**O(n)**
 
 ---
 
-# 4. Why Worst Case?
+# 4. Why Do We Usually Consider the Worst Case?
 
-Generally DSA mein hum **worst-case Time Complexity** consider karte hain.
+In DSA, we commonly analyze the **worst-case complexity** because it tells us how the algorithm behaves in the most demanding situation.
 
 Example:
 
 ```text
-arr = [1,2,3,4,5]
+arr = [1, 2, 3, 4, 5]
 target = 1
 ```
 
-Best case → first element mil gaya.
+The target is found immediately.
 
 ```text
 Best Case = O(1)
 ```
 
-Agar target last mein ho:
+But if the target is the last element:
 
 ```text
 Worst Case = O(n)
 ```
 
-Interview / practical analysis mein generally:
-
-**Worst Case ko focus karo.**
+For interviews and practical analysis, **focus primarily on the worst case** unless the problem specifically asks for something else.
 
 ---
 
 # 5. Big-O Notation
 
-Big-O ek **notation** hai jo algorithm ke growth ko represent karti hai.
+**Big-O notation describes the growth rate of an algorithm.**
 
-Example:
+Common examples:
 
 ```text
-O(n)
-O(n²)
-O(log n)
 O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n²)
+O(2ⁿ)
+O(n!)
 ```
 
-Lecture ka practical focus:
-
-> **Interview / coding problems mein Big-O calculate karna sabse important hai.**
-
-Big-O ko lecture mein **worst-case / upper-bound behavior** represent karne ke liye use kiya gaya hai.
+In practical DSA and interviews, calculating the **Big-O complexity** of your solution is extremely important.
 
 ---
 
-# 6. Big-O Calculate Karne ke Basic Rules
+# 6. Basic Rules for Calculating Big-O
 
-Suppose:
+Suppose we have:
 
 ```text
 4n² + 3n + 5
 ```
 
-### Step 1 — Constants ignore karo
+### Rule 1 — Ignore Constants
 
 ```text
 n² + n + 1
 ```
 
-### Step 2 — Largest-growing term rakho
+### Rule 2 — Keep the Fastest-Growing Term
 
 ```text
 n²
@@ -158,8 +152,6 @@ Therefore:
 ```text
 O(n²)
 ```
-
----
 
 ### Example 2
 
@@ -167,13 +159,13 @@ O(n²)
 100 + 5n² + √n
 ```
 
-Constants ignore:
+Ignore constants:
 
 ```text
 1 + n² + √n
 ```
 
-Largest term:
+Keep the fastest-growing term:
 
 ```text
 n²
@@ -185,48 +177,45 @@ Therefore:
 O(n²)
 ```
 
-### Remember:
+### Remember
 
-**Big-O mein:**
+When calculating Big-O:
 
-1. Constants ignore.
-2. Lower-order terms ignore.
-3. Highest-growing term keep.
-
----
-
-# 7. Other Notations
-
-Lecture mein mention ki gayi:
-
-- **O** → upper bound / practical worst-case notation
-- **Θ (Theta)** → tight bound
-- **Ω (Omega)** → lower bound
-
-Also mathematically:
-
-- Small-o
-- Small-omega
-
-### For interviews:
-
-**Big-O par focus karo.**
-
-Calculus / limits / advanced mathematical derivations ki practical interview mein generally zaroorat nahi.
+1. Ignore constant factors.
+2. Ignore lower-order terms.
+3. Keep the fastest-growing term.
 
 ---
 
-# 8. SPACE COMPLEXITY
+# 7. Other Complexity Notations
 
-### Definition
+The main notations are:
 
-**Space Complexity = input size `n` ke function ke taur par algorithm kitni extra space use karta hai.**
+- **O (Big-O)** → upper-bound notation; commonly used for worst-case analysis.
+- **Θ (Theta)** → tight bound.
+- **Ω (Omega)** → lower bound.
+- **o (small-o)** → strict upper bound.
+- **ω (small-omega)** → strict lower bound.
 
-Important distinction:
+### For DSA Interviews
+
+Focus mainly on **Big-O**.
+
+You usually do not need advanced calculus or mathematical derivations just to calculate the complexity of common DSA solutions.
+
+---
+
+# 8. Space Complexity
+
+## Definition
+
+**Space Complexity describes how the memory usage of an algorithm grows with the input size `n`.**
+
+An important distinction is:
 
 ### Input Space
 
-Jo input already diya gaya hai:
+The memory already occupied by the input, such as:
 
 ```text
 array
@@ -234,29 +223,29 @@ vector
 string
 ```
 
-isko generally extra/auxiliary space mein count nahi karte.
+is generally not counted when discussing **auxiliary space**.
 
 ### Auxiliary Space
 
-Algorithm input ke ilawa jo extra memory use karta hai.
+**Auxiliary Space** is the extra memory used by the algorithm apart from the input.
 
 ---
 
-# 9. Space Example — Square Array
+# 9. Space Example — Creating a Square Array
 
 Input:
 
 ```text
-arr = [1,2,3,4,5]
+arr = [1, 2, 3, 4, 5]
 ```
 
-Output ke liye another array:
+Suppose we create another array:
 
 ```text
-square = [1,4,9,16,25]
+square = [1, 4, 9, 16, 25]
 ```
 
-Input array size:
+Input size:
 
 ```text
 n
@@ -271,14 +260,14 @@ n
 Therefore:
 
 ```text
-Space Complexity = O(n)
+Auxiliary Space = O(n)
 ```
 
 ---
 
-# 10. Constant Space
+# 10. Constant Space — O(1)
 
-Suppose array ka sum nikalna hai:
+Suppose we calculate the sum of an array:
 
 ```text
 sum = 0
@@ -287,21 +276,21 @@ for i = 0 → n-1
     sum += arr[i]
 ```
 
-Extra variable sirf:
+The only extra variable is:
 
 ```text
 sum
 ```
 
-Array ka size chahe:
+Whether the array contains:
 
 ```text
 10
 100
-1000000
+1,000,000
 ```
 
-`sum` variable ki memory same rahegi.
+elements, the extra memory used by `sum` remains constant.
 
 Therefore:
 
@@ -315,21 +304,21 @@ Space Complexity = O(1)
 
 ### O(1)
 
-Input size barhne par operations/extra space approximately same.
+The number of operations or extra memory does not grow with `n`.
 
 ### O(n)
 
-Input double → work roughly double.
+If `n` doubles, the work generally grows approximately 2×.
 
 ### O(n²)
 
-Input double → work roughly 4×.
+If `n` doubles, the work generally grows approximately 4×.
 
 ---
 
 # 12. Common Time Complexities
 
-From better → worse:
+From generally better to worse:
 
 ```text
 O(1)
@@ -342,41 +331,29 @@ O(2ⁿ)
 O(n!)
 ```
 
-General idea:
+General intuition:
 
 ```text
 O(1)       → excellent
 O(log n)   → very good
 O(n)       → good
-O(n log n) → good/acceptable
+O(n log n) → usually good
 O(n²)      → slower
 O(n³)      → very slow for large n
-O(2ⁿ)      → very bad
-O(n!)      → extremely bad
+O(2ⁿ)      → very expensive
+O(n!)      → extremely expensive
 ```
 
 ---
 
 # 13. O(1) — Constant Time
 
-Input size se farq nahi padta.
+The input size does not affect the number of operations significantly.
 
-### Example
+### Array Access
 
 ```text
 arr[0]
-```
-
-First element directly access.
-
-```text
-O(1)
-```
-
-### Sorted array ka last element
-
-```text
-arr[n-1]
 ```
 
 Direct access:
@@ -385,15 +362,29 @@ Direct access:
 O(1)
 ```
 
-### Formula
+The last element:
 
-1 se n ka sum:
+```text
+arr[n-1]
+```
+
+is also directly accessed:
+
+```text
+O(1)
+```
+
+### Mathematical Formula
+
+Sum of numbers from `1` to `n`:
 
 ```text
 n(n+1)/2
 ```
 
-No loop required.
+No loop is required.
+
+Therefore:
 
 ```text
 O(1)
@@ -401,27 +392,27 @@ O(1)
 
 ### Hash Table
 
-Lecture ke practical context mein:
+Operations such as:
 
 ```text
-HashMap / HashSet
+Insert
+Delete
+Find
 ```
 
-Insert / Delete / Find ko generally:
+in a hash table are generally treated as:
 
 ```text
 O(1)
 ```
 
-assume kiya jata hai.
-
-More precisely, lecture notes this as **amortized/practical O(1)**.
+in average/amortized practical analysis, although worst-case behavior can be different.
 
 ---
 
 # 14. O(n) — Linear Time
 
-Input ke saath work linearly grow karta hai.
+The amount of work grows linearly with the input size.
 
 ### Linear Search
 
@@ -429,7 +420,7 @@ Input ke saath work linearly grow karta hai.
 O(n)
 ```
 
-### Simple loop
+### Single Loop
 
 ```text
 for i = 0 → n
@@ -439,7 +430,7 @@ for i = 0 → n
 O(n)
 ```
 
-### Sum of array
+### Sum of an Array
 
 ```text
 for each element:
@@ -452,7 +443,7 @@ O(n)
 
 ### Kadane's Algorithm
 
-Single pass:
+Kadane's Algorithm makes a single pass through the array:
 
 ```text
 O(n)
@@ -460,9 +451,9 @@ O(n)
 
 ---
 
-# 15. O(n²) — Quadratic
+# 15. O(n²) — Quadratic Time
 
-Usually **nested loops**.
+Quadratic complexity commonly appears with nested loops.
 
 Example:
 
@@ -500,20 +491,20 @@ O(n²)
 
 # 16. Nested Loops — Important Rule
 
-Agar:
+If we have:
 
 ```text
 loop → n times
     loop → n times
 ```
 
-then:
+then it is generally:
 
 ```text
 O(n²)
 ```
 
-Agar:
+Three nested loops:
 
 ```text
 loop → n
@@ -521,23 +512,27 @@ loop → n
         loop → n
 ```
 
-then:
+give:
 
 ```text
 O(n³)
 ```
 
-General:
+General rule:
 
 ```text
 k nested n-loops → O(nᵏ)
 ```
 
+**But do not blindly assume that every nested loop is O(n²).**
+
+Always check how many times the inner loop actually runs.
+
 ---
 
-# 17. Bubble Sort / Selection Sort / Insertion Sort
+# 17. Bubble Sort, Selection Sort & Insertion Sort
 
-Lecture examples:
+Typical worst-case complexities:
 
 ```text
 Bubble Sort     → O(n²)
@@ -545,9 +540,7 @@ Selection Sort  → O(n²)
 Insertion Sort  → O(n²)
 ```
 
-Reason:
-
-Nested loops / approximately quadratic amount of work.
+Their basic implementations perform approximately quadratic work.
 
 ---
 
@@ -559,15 +552,7 @@ Suppose:
 n = 4
 ```
 
-Outer loop:
-
-```text
-i = 0
-i = 1
-i = 2
-```
-
-Inner loop runs approximately:
+The inner loop may run:
 
 ```text
 3 + 2 + 1
@@ -585,7 +570,7 @@ For general `n`:
 1 + 2 + 3 + ... + (n-1)
 ```
 
-Sum:
+The sum is:
 
 ```text
 n(n-1)/2
@@ -597,35 +582,23 @@ Expand:
 (n² - n)/2
 ```
 
-Ignore constants + lower term:
+Ignore constants and lower-order terms:
 
 ```text
 O(n²)
 ```
 
-### Important intuition:
+### Important Intuition
 
-Don't blindly say:
+Do not blindly think:
 
-> "Nested loop = O(n²)"
+> "Nested loop = O(n²)."
 
-Always check how the inner loop actually runs.
-
-But in most normal:
-
-```text
-n × n
-```
-
-nested-loop patterns:
-
-```text
-O(n²)
-```
+Instead, check how the loops actually run.
 
 ---
 
-# 19. O(n³)
+# 19. O(n³) — Cubic Time
 
 Three nested loops:
 
@@ -635,7 +608,7 @@ for i = 0 → n
         for k = 0 → n
 ```
 
-Total:
+Total work:
 
 ```text
 n × n × n
@@ -648,19 +621,13 @@ Therefore:
 O(n³)
 ```
 
-Example mentioned:
-
-Generating all subarrays using a straightforward triple-loop approach.
-
 ---
 
-# 20. O(log n)
+# 20. O(log n) — Logarithmic Time
 
-One of the best common complexities.
+A common pattern for `O(log n)` is repeatedly reducing the problem size by a constant factor, especially by half.
 
-### Main Pattern
-
-If search/work space becomes:
+For example:
 
 ```text
 n
@@ -672,21 +639,21 @@ n/16
 1
 ```
 
-then:
+Therefore:
 
 ```text
 O(log n)
 ```
 
-### Key clue:
+### Key Clue
 
-> **Har step mein problem/search space half ho rahi ho → think O(log n).**
+> **If the search/problem space is roughly cut in half at every step, think O(log n).**
 
 ---
 
 # 21. Binary Search
 
-Binary Search:
+Binary Search repeatedly halves the search space:
 
 ```text
 n
@@ -697,7 +664,7 @@ n/8
 1
 ```
 
-Suppose after `x` divisions:
+Suppose we divide the search space `x` times:
 
 ```text
 n / 2ˣ = 1
@@ -715,33 +682,27 @@ Taking log:
 x = log₂ n
 ```
 
-So:
+Therefore:
 
 ```text
 Binary Search = O(log n)
 ```
 
-### Practical recognition:
+### Practical Recognition
 
-If every step cuts the search space roughly in half:
+If every step reduces the search space by roughly half:
 
 ```text
 → O(log n)
 ```
 
-BST operations can also commonly be:
-
-```text
-O(log n)
-```
-
-under the relevant balanced-tree assumptions.
+Operations on a **balanced BST** can also be `O(log n)`.
 
 ---
 
 # 22. O(n log n)
 
-Very common efficient complexity.
+This is a very common efficient complexity.
 
 Examples:
 
@@ -750,7 +711,19 @@ Merge Sort → O(n log n)
 Quick Sort → O(n log n) average
 ```
 
-Also commonly appears in algorithms involving sorting.
+A common pattern is:
+
+```text
+O(n) work
+×
+O(log n) levels
+```
+
+Therefore:
+
+```text
+O(n log n)
+```
 
 Comparison:
 
@@ -758,47 +731,39 @@ Comparison:
 O(n) < O(n log n) < O(n²)
 ```
 
-So:
-
-```text
-n log n
-```
-
-is better than:
-
-```text
-n²
-```
+So `n log n` grows more slowly than `n²`.
 
 ---
 
-# 23. O(2ⁿ) — Exponential
+# 23. O(2ⁿ) — Exponential Time
 
-Commonly appears in brute-force recursion.
+Exponential complexity commonly appears in brute-force recursive algorithms.
 
-Examples:
+Example:
 
 ```text
 Brute-force Fibonacci
 ```
 
-and other recursion problems where each call generates multiple recursive calls.
+It can occur when each recursive call produces multiple recursive calls.
 
-Very bad for large `n`.
+This becomes extremely expensive as `n` grows.
+
+Typical simplified complexity:
+
+```text
+O(2ⁿ)
+```
 
 ---
 
-# 24. O(n!)
+# 24. O(n!) — Factorial Time
 
-Factorial complexity.
+Factorial complexity is even worse than exponential complexity.
 
-Examples mentioned:
+It commonly appears when generating all permutations.
 
-- N-Queens brute-force approach
-- Knight's Tour brute-force approach
-- Generating all permutations of a string
-
-For a string of size 3:
+For a string of size `3`:
 
 ```text
 3! = 6
@@ -815,59 +780,65 @@ cab
 cba
 ```
 
-Therefore generating all permutations generally requires:
+Therefore, generating all permutations generally requires:
 
 ```text
 O(n!)
 ```
 
-### Comparison
+Other brute-force examples can include:
+
+- N-Queens
+- Knight's Tour
+- Permutation-based problems
+
+Comparison:
 
 ```text
 O(2ⁿ) < O(n!)
 ```
 
-So:
+Therefore:
 
 ```text
 O(n!)
 ```
 
-is even worse than exponential `O(2ⁿ)`.
+grows even faster.
 
 ---
 
 # 25. Recursion — Time Complexity
 
-For recursion, lecture gives two practical approaches:
+There are two common approaches to analyzing recursive algorithms.
 
-### Method 1
+### Method 1 — Recurrence Relation
 
-Use a **recurrence relation**.
-
-Example idea:
+For example:
 
 ```text
 T(n) = T(n-1) + ...
 ```
 
-Then solve mathematically.
+Then solve the recurrence mathematically.
 
-### Method 2 — Practical
+### Method 2 — Practical Approach
+
+Think in terms of:
 
 ```text
-Total recursive calls
+Number of recursive calls
 ×
-work done in each call
+Work done in each call
 ```
 
-Lecture prefers the second method in many practical cases because recurrence solving can become mathematical.
+This can be easier for many practical DSA problems.
 
 ---
 
 # 26. Recursive Fibonacci
 
-Brute-force Fibonacci:
+Brute-force Fibonacci looks like:
 
 ```text
 fib(n)
@@ -875,9 +846,9 @@ fib(n)
  └── fib(n-2)
 ```
 
-Each call produces more calls.
+Each call creates more calls.
 
-Recursion tree approximately doubles at each level:
+The recursion tree grows approximately like:
 
 ```text
 1
@@ -887,39 +858,23 @@ Recursion tree approximately doubles at each level:
 ...
 ```
 
-For `n` levels:
+This leads to exponential growth.
 
-```text
-2ⁿ
-```
-
-Therefore:
+For practical Big-O analysis:
 
 ```text
 Time Complexity = O(2ⁿ)
 ```
 
-Lecture also mentions the more exact growth around:
-
-```text
-O(1.618ⁿ)
-```
-
-but for interview/practical analysis:
-
-```text
-O(2ⁿ)
-```
-
-is the expected simplified answer.
+The more precise growth rate is closer to `O(1.618ⁿ)`, but `O(2ⁿ)` is the common simplified interview answer.
 
 ---
 
-# 27. Recursive Fibonacci — Space
+# 27. Recursive Fibonacci — Space Complexity
 
-Recursion creates a **call stack**.
+Recursion uses the **call stack**.
 
-For Fibonacci, maximum recursion depth is approximately:
+The maximum recursion depth is approximately:
 
 ```text
 n
@@ -933,15 +888,15 @@ Therefore:
 Space Complexity = O(n)
 ```
 
-### Important:
+### Important
 
-Even if you don't explicitly create an extra array/vector, recursion can still use extra space because of the **call stack**.
+Even if you do not explicitly create an array or vector, recursion can still use extra memory because of the **call stack**.
 
 ---
 
 # 28. Recursion — Space Formula
 
-Useful mental model:
+A useful mental model is:
 
 ```text
 Space =
@@ -954,7 +909,7 @@ If:
 
 ```text
 depth = n
-memory/call = O(1)
+memory per call = O(1)
 ```
 
 then:
@@ -969,9 +924,9 @@ Space = O(n)
 
 Merge Sort has two important parts:
 
-### 1. Divide
+## 1. Divide
 
-Array repeatedly divided into halves:
+The array is repeatedly divided into halves:
 
 ```text
 n
@@ -988,9 +943,9 @@ Number of levels:
 O(log n)
 ```
 
-### 2. Merge
+## 2. Merge
 
-At each level, total merging work is:
+At each level, the total merging work is:
 
 ```text
 O(n)
@@ -1012,7 +967,7 @@ Merge Sort Time = O(n log n)
 
 # 30. Merge Step Complexity
 
-Merge operation takes two sorted arrays and combines them.
+The merge operation combines two sorted arrays.
 
 Example:
 
@@ -1026,7 +981,7 @@ Result:
 [1,3,5,6]
 ```
 
-All elements are traversed/copy kiye jate hain.
+The elements are processed during the merge.
 
 Therefore:
 
@@ -1034,7 +989,7 @@ Therefore:
 Merge Step Time = O(n)
 ```
 
-Temporary array/vector is also used:
+A temporary array/vector is also commonly used:
 
 ```text
 Merge Step Space = O(n)
@@ -1042,17 +997,17 @@ Merge Step Space = O(n)
 
 ---
 
-# 31. Merge Sort Space
+# 31. Merge Sort Space Complexity
 
-Merge Sort has:
+Merge Sort typically uses:
 
-### Recursion stack
+### Recursion Stack
 
 ```text
 O(log n)
 ```
 
-### Temporary merge array
+### Temporary Merge Array
 
 ```text
 O(n)
@@ -1064,19 +1019,13 @@ Combined:
 O(log n + n)
 ```
 
-Largest term:
+Keep the largest term:
 
 ```text
 O(n)
 ```
 
 Therefore:
-
-```text
-Merge Sort Space = O(n)
-```
-
-### Final:
 
 ```text
 Merge Sort
@@ -1086,27 +1035,29 @@ Space = O(n)
 
 ---
 
-# 32. Constraint → Complexity
+# 32. Constraints → Complexity
 
-This is one of the **most practical parts** of the lecture.
+This is one of the most practical uses of complexity analysis.
 
-Coding problems usually give:
+Coding problems usually provide a constraint such as:
 
 ```text
 1 ≤ n ≤ ...
 ```
 
-This constraint tells us:
+The constraint tells you approximately:
 
-> What complexity can probably pass?
+> **What complexity is likely to be acceptable?**
 
-Lecture uses approximately:
+A common rough competitive-programming guideline is:
 
 ```text
-10⁸ operations ≈ around 1 second
+10⁸ simple operations ≈ around 1 second
 ```
 
-So if an algorithm performs much more than this, it may produce:
+This is only an approximation and depends on the language, machine, and operation.
+
+If your algorithm performs too much work, you may get:
 
 ```text
 TLE = Time Limit Exceeded
@@ -1116,18 +1067,18 @@ TLE = Time Limit Exceeded
 
 # 33. Constraint Cheat Sheet
 
-Use this as a rough interview/LeetCode estimator:
+Use this only as a **rough estimator**:
 
-| Constraint | Complexity you can think about |
+| Constraint | Possible Complexity |
 |---|---|
 | `n ≤ 10⁸` | O(1), O(log n), sometimes O(n) |
 | `n ≤ 10⁶` | O(n), O(n log n) |
-| `n ≤ 10⁵` | O(n log n), sometimes O(n²) depending on limits |
-| `n ≤ 500` | O(n³) can be possible |
+| `n ≤ 10⁵` | O(n log n), sometimes O(n²) depending on the problem |
+| `n ≤ 500` | O(n³) may be possible |
 | `n ≤ 25` | O(2ⁿ) may be possible |
 | `n ≤ 12` | O(n!) may be possible |
 
-These are **rough estimates**, not absolute rules.
+These are **rough guidelines, not absolute rules**.
 
 ---
 
@@ -1139,78 +1090,64 @@ Suppose:
 n ≤ 10⁵
 ```
 
-Try:
+Consider:
 
 ```text
 O(n²)
 ```
 
-Maximum operations:
+Maximum work:
 
 ```text
 (10⁵)²
 = 10¹⁰
 ```
 
-Too large compared with the ~10⁸ operations guideline.
+This is much larger than the rough `10⁸` operations guideline.
 
-So:
-
-```text
-O(n²) → likely TLE
-```
-
-Try:
+Therefore:
 
 ```text
-O(n log n)
+O(n²) → likely too slow
 ```
 
-This is much smaller and can be acceptable.
-
-### Practical thought:
-
-If:
-
-```text
-n ≤ 10⁵
-```
-
-and you need around:
+Instead, try to find something closer to:
 
 ```text
 O(n log n)
 ```
 
-think:
+For `n ≤ 10⁵`, think about:
 
 - Sorting
-- Binary-search-based approaches
+- Binary search
+- Hashing
 - Efficient data structures
+- Other `O(n)` or `O(n log n)` approaches
 
 ---
 
-# 35. Constraint as a Hint
+# 35. Constraints Can Give You a Hint
 
-Constraint doesn't just tell you what will pass.
+Constraints do not only tell you whether your solution will pass.
 
-It can also give you a **hint about the intended algorithm**.
+They can also give you a **hint about the intended approach**.
 
-Example:
+### Example
 
 ```text
 n ≤ 25
 ```
 
-This small `n` means:
+Since `n` is small, something like:
 
 ```text
 O(2ⁿ)
 ```
 
-might be acceptable.
+may be acceptable.
 
-So think:
+Think about:
 
 ```text
 Brute force
@@ -1218,7 +1155,7 @@ Recursion
 Backtracking
 ```
 
-Example:
+Another example:
 
 ```text
 n ≤ 12
@@ -1226,49 +1163,45 @@ n ≤ 12
 
 `O(n!)` may be possible.
 
-So think:
+Think about:
 
 ```text
-Permutation
+Permutations
 Brute-force recursion
 Backtracking
 ```
 
 ---
 
-# 36. Important Mental Process for Problems
+# 36. Mental Process When Solving a Problem
 
-When you see a problem:
+When you see a DSA problem:
 
-### Step 1
-Look at constraint.
+### Step 1 — Check the Constraint
+
+Ask:
 
 ```text
-What is maximum n?
+What is the maximum n?
 ```
 
-### Step 2
-Estimate acceptable complexity.
+### Step 2 — Estimate the Allowed Complexity
 
-### Step 3
-Reject algorithms that are too slow.
+Determine approximately what complexity can pass.
 
-### Step 4
-Think about patterns that match the allowed complexity.
+### Step 3 — Reject Too-Slow Approaches
 
-Example:
+Do not spend time implementing an approach that is obviously too slow.
+
+### Step 4 — Choose a Suitable Pattern
+
+For example, if:
 
 ```text
 n = 10⁵
 ```
 
-Don't immediately start writing:
-
-```text
-O(n²)
-```
-
-Instead think:
+ask:
 
 ```text
 Can I solve it in O(n)?
@@ -1282,59 +1215,65 @@ Can binary search help?
 
 # 37. Quick Recognition Table
 
-| Code / Pattern | Complexity |
+| Pattern | Typical Complexity |
 |---|---|
 | Direct calculation | O(1) |
 | `arr[i]` | O(1) |
-| Single loop to n | O(n) |
-| Two independent loops | O(n) |
-| Nested n × n loops | O(n²) |
-| 3 nested n loops | O(n³) |
-| Search space halves | O(log n) |
+| Single loop to `n` | O(n) |
+| Two sequential loops | O(n) |
+| Nested `n × n` loops | O(n²) |
+| Three nested `n` loops | O(n³) |
+| Search space repeatedly halves | O(log n) |
 | Divide + linear work at each level | O(n log n) |
-| Two recursive branches | often O(2ⁿ) |
-| All permutations | O(n!) |
+| Two recursive branches | Often O(2ⁿ) |
+| Generate all permutations | O(n!) |
 
 ---
 
 # 38. Independent vs Nested Loops
 
-### Important distinction
+This is very important.
 
-These:
+## Sequential Loops
 
 ```text
 for i = 0 → n
+    ...
+
 for j = 0 → n
+    ...
 ```
 
-are **sequential**.
+These loops run one after another.
 
 Total:
 
 ```text
-n + n = 2n
+n + n
+= 2n
 ```
 
-Ignore constant:
+Ignore the constant:
 
 ```text
 O(n)
 ```
 
-But:
+## Nested Loops
 
 ```text
 for i = 0 → n
     for j = 0 → n
+        ...
 ```
 
-are **nested**.
+The inner loop runs for each iteration of the outer loop.
 
 Total:
 
 ```text
-n × n = n²
+n × n
+= n²
 ```
 
 Therefore:
@@ -1343,84 +1282,66 @@ Therefore:
 O(n²)
 ```
 
-### Remember:
+### Remember
 
-**Sequential loops → add**
+**Sequential loops → Add**
 
-**Nested loops → multiply**
+**Nested loops → Multiply**
 
 ---
 
 # 39. Most Important Rules to Memorize
 
-### Rule 1
-
-```text
-Constants ignore
-```
+### Rule 1 — Ignore Constants
 
 ```text
 O(5n) → O(n)
 O(100n²) → O(n²)
 ```
 
-### Rule 2
-
-Keep largest term:
+### Rule 2 — Keep the Largest-Growing Term
 
 ```text
 O(n² + n + 1)
 → O(n²)
 ```
 
-### Rule 3
-
-Sequential:
+### Rule 3 — Sequential Work Adds
 
 ```text
 O(n) + O(n)
 → O(n)
 ```
 
-### Rule 4
-
-Nested:
+### Rule 4 — Nested Work Multiplies
 
 ```text
 O(n) × O(n)
 → O(n²)
 ```
 
-### Rule 5
-
-Halving pattern:
+### Rule 5 — Halving Pattern
 
 ```text
 n → n/2 → n/4 → ...
 → O(log n)
 ```
 
-### Rule 6
-
-Divide into halves + process all elements:
+### Rule 6 — Divide + Process All Elements
 
 ```text
 O(n) work × O(log n) levels
 → O(n log n)
 ```
 
-### Rule 7
-
-Recursive branching:
+### Rule 7 — Recursive Branching
 
 ```text
-1 → 2 → 4 → 8 ...
+1 → 2 → 4 → 8 → ...
 → O(2ⁿ)
 ```
 
-### Rule 8
-
-All permutations:
+### Rule 8 — All Permutations
 
 ```text
 n!
@@ -1429,9 +1350,9 @@ n!
 
 ---
 
-# 40. Final Complexity Ranking
+# 40. Complexity Ranking
 
-Memorize this order:
+Memorize this order from generally better to worse:
 
 ```text
 O(1)
@@ -1451,113 +1372,119 @@ O(2ⁿ)
 O(n!)
 ```
 
-**Top = better**
+**Top = generally better**
 
-**Bottom = worse**
+**Bottom = generally worse**
 
 ---
 
-# 41. Final Revision — One Page
+# 41. Final One-Page Revision
 
-### Time Complexity
-
-```text
-How operations grow with input size n.
-```
-
-### Space Complexity
+## Time Complexity
 
 ```text
-How extra memory grows with input size n.
+How the number of operations grows with input size n.
 ```
 
-### Big-O
+## Space Complexity
 
 ```text
-Practical worst-case growth notation.
+How the extra memory usage grows with input size n.
 ```
 
-### Calculation
+## Big-O
+
+```text
+A notation used to describe an algorithm's growth,
+commonly for worst-case analysis.
+```
+
+## Calculating Big-O
 
 ```text
 1. Ignore constants.
-2. Keep largest-growing term.
+2. Keep the fastest-growing term.
 ```
 
-### Common complexities
+## Common Complexities
 
 ```text
 O(1)       → direct access / formula
-O(log n)   → repeatedly divide by 2
+O(log n)   → repeatedly reduce the search space
 O(n)       → single pass
 O(n log n) → efficient sorting / divide & conquer
 O(n²)      → nested loops
 O(n³)      → triple nested loops
-O(2ⁿ)      → brute-force recursion
+O(2ⁿ)      → brute-force recursive branching
 O(n!)      → permutations / brute-force arrangements
 ```
 
-### Recursion
+## Recursion
 
 ```text
-Time ≈ number of calls × work/call
-Space ≈ recursion depth × memory/call
+Time  ≈ number of calls × work per call
+Space ≈ recursion depth × memory per call
 ```
 
-### Merge Sort
+## Merge Sort
 
 ```text
 Time  = O(n log n)
 Space = O(n)
 ```
 
-### Fibonacci brute force
+## Brute-Force Fibonacci
 
 ```text
 Time  = O(2ⁿ)
 Space = O(n)
 ```
 
-### Constraints
+## Constraints
 
 ```text
-n large → need efficient complexity
-n small → worse complexity may be acceptable
+Large n → need a more efficient algorithm
+Small n → more expensive algorithms may be acceptable
 ```
-
-### Golden mental rule
-
-> **Problem solve karne se pehle constraint dekho → allowed complexity estimate karo → phir algorithm/pattern choose karo.**
 
 ---
 
-# 42. What You Should Actually Remember
+# 42. What You Actually Need to Remember
 
-Don't try to memorize the entire lecture word-for-word.
+Do **not** try to memorize the entire lecture word-for-word.
 
-Just make these 5 things automatic:
+Make these five patterns automatic:
 
 ```text
 1. Single loop          → O(n)
 
 2. Nested loops         → usually O(n²)
 
-3. Halving search space → O(log n)
+3. Search space halves  → O(log n)
 
 4. Divide + n work      → O(n log n)
 
 5. Recursive branching  → often O(2ⁿ)
 ```
 
-And whenever you solve a DSA problem, ask yourself:
+Whenever you solve a DSA problem, ask yourself:
 
 ```text
-"What is my n?"
-"How many times does my loop run?"
-"Are loops sequential or nested?"
-"Is my search space shrinking?"
-"Am I creating extra memory?"
-"Can this complexity pass the given constraint?"
+1. What is my n?
+
+2. How many times does each loop run?
+
+3. Are my loops sequential or nested?
+
+4. Is my search space shrinking?
+
+5. Am I using extra memory?
+
+6. Can this complexity pass the given constraint?
 ```
 
-**This is the real practical use of Time & Space Complexity.**
+### Golden Rule
+
+> **Check the constraint first → estimate the allowed complexity → choose an appropriate algorithm/pattern.**
+
+That is the practical purpose of Time & Space Complexity.
