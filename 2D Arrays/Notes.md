@@ -244,13 +244,13 @@ int main() {
 
 ---
 
-✅ **Important Tips:**
+**Important Tips:**
 - 2D Arrays are **fixed size** in C++ (not dynamic like vectors).
 - Always be careful with indices to avoid out-of-bounds errors.
 - Useful for matrices, grids, tables, images (pixel data), games like Tic-Tac-Toe.
 
 ---
 
-# End of Notes 🚀
+# End of Notes 
 
 ---
