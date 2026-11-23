@@ -1407,7 +1407,6 @@ Because we reverse the string in place without creating another array.
 
 ## 26. LeetCode Problem 344 – Reverse String
 
-The lecture also discusses the LeetCode problem:
 
 **Problem Number: 344 – Reverse String**
 
