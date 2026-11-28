@@ -201,29 +201,30 @@ Find the sum of the main and secondary diagonals in a square matrix.
 
 **Code:**
 ```cpp
-#include <iostream>
+#include<iostream>
+#include<algorithm>
 using namespace std;
-
-int diagonalSum(int matrix[][4], int n) {
-  int sum = 0;
-  for (int i = 0; i < n; i++) {
-    sum += matrix[i][i]; // Main diagonal
-    if (i != n - i - 1) { 
-      sum += matrix[i][n - i - 1]; // Secondary diagonal
+int diagonalSum(int mat[4][3],int n, int m){
+int sum = 0;
+for(int i = 0 ; i<min(n,m);i++){
+    sum+=mat[i][i];
+    if(i!=m-i-1){
+        sum+=mat[i][m-i-1];
     }
-  }
-  return sum;
 }
+return sum;
+}
+ 
+int main(){
+  int mat[4][3] = {
+        {1, 2, 3},
+        {5, 6, 7},
+        {9, 10, 11},
+        {4, 8, 12}
+    };
 
-int main() {
-  int matrix[4][4] = {
-    {1,2,3,4},
-    {5,6,7,8},
-    {9,10,11,12},
-    {13,14,15,16}
-  };
-  cout << diagonalSum(matrix, 4); // Output: 68
-  return 0;
+    cout << diagonalSum(mat, 4, 3);
+return 0;
 }
 ```
 
